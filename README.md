@@ -7,7 +7,7 @@ the docker is based on the image from nvidia on dockerhub which includes ubuntu1
 + curl
 + git 
 + openssh-server  
-+ miniconda \[base\] pytorch numpy matplotlib opencv-python cpython
++ miniconda \[base\] pytorch numpy matplotlib opencv-python cython
 
 others
 
