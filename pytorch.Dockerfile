@@ -4,11 +4,13 @@ FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
 # Set the working directory to /home ,the command can be put anywhere in the dockerfile,which determines your initial dir
 WORKDIR /home
 
-# Copy the current directory contents into the container at /home
-COPY . /home
+# Copy the current directory contents(corresponding to nn_demo.py at the last line) into the container at /home  
+#####COPY . /home
 # Copy the source.list in the upper directory  to the container at /etc/apt/
 #the source.list include the url of tsinghua mirrors which will help the download of ubuntu
 COPY ../source.list /etc/apt/
+#copy or add
+####ADD sources.list /etc/apt/
 
 RUN apt-get update && \
     apt-get install -y --fix-missing build-essential \
@@ -37,6 +39,6 @@ RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple cython
 RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple numpy opencv-python matplotlib  
 
 
-# Run nn_demo.py when the container launches at WORKDIR
-CMD ["python", "nn_demo.py"]
+# Run nn_demo.py (if you have copied it) when the container launches at WORKDIR (defined at the second line: /home)
+#CMD ["python", "nn_demo.py"]
 
