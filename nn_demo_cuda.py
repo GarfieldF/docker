@@ -8,6 +8,16 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from copy import deepcopy
+print(f'PyTorch available: {torch.cuda.is_available()}')
+print(f'PyTorch version: {torch.__version__}')
+print('*'*10)
+print(f'CUDA version: ')
+print(torch.version.cuda)
+print('*'*10)
+print(f'CUDNN version: {torch.backends.cudnn.version()}')
+# print(torch.cuda.nccl.version())
+print(f'Available GPU devices: {torch.cuda.device_count()}')
+print(f'Device Name: {torch.cuda.get_device_name()}')
 class Net(nn.Module):
 	def __init__(self):
 		super(Net,self).__init__()
